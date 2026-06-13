@@ -5,6 +5,11 @@ import subprocess
 import sys
 import time
 
+import os
+
+print("CURRENT FILE:", __file__)
+print("CURRENT DIR :", os.path.dirname(os.path.abspath(__file__)))
+
 app = Flask(__name__)
 
 # =====================================================
@@ -170,26 +175,68 @@ def upload():
     # =================================================
 
     return f"""
-    <html>
-    <body>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Success</title>
+<style>
+body {{
+    font-family: Arial;
+    background: #f4f7fa;
+    text-align: center;
+    padding: 50px;
+}}
 
-    <h2>Upload Successful</h2>
+.card {{
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 600px;
+    margin: auto;
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
+}}
 
-    <p><b>Claim File:</b> {claim_filename}</p>
-    <p><b>EOB File:</b> {eob_filename}</p>
+.success {{
+    color: green;
+    font-size: 30px;
+}}
 
-    <p>Claim.py executed successfully.</p>
-    <p>EOB Analyzer executed successfully.</p>
+.btn {{
+    display:inline-block;
+    padding:10px 20px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}}
+</style>
+</head>
 
-    <p><b>Temporary files deleted successfully.</b></p>
+<body>
 
-    <a href="/">Upload Another File</a>
+<div class="card">
 
-    </body>
-    </html>
-    """
+<h1 class="success">✅ Analysis Completed</h1>
 
+<p><b>Claim PDF:</b> {claim_filename}</p>
 
+<p><b>EOB PDF:</b> {eob_filename}</p>
+
+<p>Claim Extraction Completed Successfully</p>
+
+<p>EOB Analysis Completed Successfully</p>
+
+<p>Temporary Files Deleted Successfully</p>
+
+<br>
+
+<a href="/" class="btn">Upload Another File</a>
+
+</div>
+
+</body>
+</html>
+"""
 # =====================================================
 # START APP
 # =====================================================

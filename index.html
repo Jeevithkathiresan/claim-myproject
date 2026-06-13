@@ -1,41 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Claim Analyzer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Healthcare Claims Automation System</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    width:100%;
+    max-width:700px;
+}
+
+.card{
+    background:#ffffff;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.logo h1{
+    color:#0f172a;
+    font-size:32px;
+}
+
+.logo p{
+    color:#64748b;
+    margin-top:8px;
+}
+
+.section-title{
+    margin-top:30px;
+    margin-bottom:10px;
+    color:#0f172a;
+    font-size:18px;
+    font-weight:600;
+}
+
+.upload-box{
+    border:2px dashed #cbd5e1;
+    border-radius:12px;
+    padding:25px;
+    background:#f8fafc;
+    transition:0.3s;
+}
+
+.upload-box:hover{
+    border-color:#2563eb;
+    background:#eff6ff;
+}
+
+input[type="file"]{
+    width:100%;
+    padding:10px;
+    cursor:pointer;
+}
+
+button{
+    width:100%;
+    margin-top:30px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.features{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+    text-align:center;
+    gap:15px;
+}
+
+.feature{
+    flex:1;
+    background:#f8fafc;
+    padding:15px;
+    border-radius:10px;
+}
+
+.feature h4{
+    color:#0f172a;
+    margin-bottom:5px;
+}
+
+.feature p{
+    color:#64748b;
+    font-size:13px;
+}
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+</style>
 </head>
+
 <body>
 
-<h1>Claim & EOB Upload Portal</h1>
+<div class="container">
 
-<form action="/upload"
-      method="POST"
-      enctype="multipart/form-data">
+    <div class="card">
 
-    <h3>Claim PDF</h3>
+        <div class="logo">
+            <h1>🏥 Healthcare Claims Automation</h1>
+            <p>
+                Upload Claim and EOB documents for automated analysis,
+                validation, denial detection, and reporting.
+            </p>
+        </div>
 
-    <input
-        type="file"
-        name="claim_pdf"
-        accept=".pdf"
-        required>
+        <form action="/upload"
+              method="POST"
+              enctype="multipart/form-data">
 
-    <br><br>
+            <div class="section-title">
+                Claim Document (PDF)
+            </div>
 
-    <h3>EOB PDF</h3>
+            <div class="upload-box">
+                <input
+                    type="file"
+                    name="claim_pdf"
+                    accept=".pdf"
+                    required>
+            </div>
 
-    <input
-        type="file"
-        name="eob_pdf"
-        accept=".pdf"
-        required>
+            <div class="section-title">
+                Explanation of Benefits (EOB) PDF
+            </div>
 
-    <br><br>
+            <div class="upload-box">
+                <input
+                    type="file"
+                    name="eob_pdf"
+                    accept=".pdf"
+                    required>
+            </div>
 
-    <button type="submit">
-        Upload Files
-    </button>
+            <button type="submit">
+                Analyze Documents
+            </button>
 
-</form>
+        </form>
+
+        <div class="features">
+
+            <div class="feature">
+                <h4>Claim Extraction</h4>
+                <p>Extract patient, provider and claim details automatically.</p>
+            </div>
+
+            <div class="feature">
+                <h4>EOB Analysis</h4>
+                <p>Analyze payments, adjustments and denial reasons.</p>
+            </div>
+
+            <div class="feature">
+                <h4>Reporting</h4>
+                <p>Generate structured healthcare insights instantly.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Healthcare Claims Automation & Denial Management System
+    </div>
+
+</div>
 
 </body>
 </html>
+```
