@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Claim Analyzer</title>
+</head>
+<body>
+
+<h1>Claim & EOB Upload Portal</h1>
+
+<form action="/upload"
+      method="POST"
+      enctype="multipart/form-data">
+
+    <h3>Claim PDF</h3>
+
+    <input
+        type="file"
+        name="claim_pdf"
+        accept=".pdf"
+        required>
+
+    <br><br>
+
+    <h3>EOB PDF</h3>
+
+    <input
+        type="file"
+        name="eob_pdf"
+        accept=".pdf"
+        required>
+
+    <br><br>
+
+    <button type="submit">
+        Upload Files
+    </button>
+
+</form>
+
+</body>
+</html>
